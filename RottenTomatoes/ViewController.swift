@@ -39,13 +39,11 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
                 if let data = dataOrNil {
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary {
                         self.movies = responseDictionary["results"] as! [NSDictionary]
-                        
                         self.moviesTableView.reloadData()
                     }
                 }
         });
         task.resume()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,19 +52,19 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.movies.count
+        if let movies:[NSDictionary] = movies {
+            return movies.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCell
-        if tableView.numberOfRowsInSection(indexPath.section) <= 0 {
-            cell.descriptionLabel?.text = "There is no valid movie description"
-            cell.movieTitleLabel?.text = "No movie found"
-        } else {
-            let movie = self.movies[indexPath.row]
-            cell.descriptionLabel?.text = movie["overview"] as? String
-            cell.movieTitleLabel.text = movie["title"] as? String
-        }
+
+        let movie = self.movies[indexPath.row]
+        cell.descriptionLabel?.text = movie["overview"] as? String
+        cell.movieTitleLabel.text = movie["title"] as? String
         
         return cell
     }
