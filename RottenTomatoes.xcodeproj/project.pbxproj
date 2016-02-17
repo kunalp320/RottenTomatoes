@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		343936F11C7520DB00931D6A /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343936F01C7520DB00931D6A /* MovieDetailViewController.swift */; };
 		34A95F211C744E6800DA275E /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A95F201C744E6800DA275E /* MovieCell.swift */; };
 		34ABCC5C1C744CFD007EC3DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ABCC5B1C744CFD007EC3DE /* AppDelegate.swift */; };
 		34ABCC5E1C744CFD007EC3DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ABCC5D1C744CFD007EC3DE /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		10039F5DB2827041AE8B325C /* Pods-RottenTomatoes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RottenTomatoes.release.xcconfig"; path = "Pods/Target Support Files/Pods-RottenTomatoes/Pods-RottenTomatoes.release.xcconfig"; sourceTree = "<group>"; };
+		343936F01C7520DB00931D6A /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		34A95F201C744E6800DA275E /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		34ABCC581C744CFD007EC3DE /* RottenTomatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RottenTomatoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34ABCC5B1C744CFD007EC3DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +52,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		343936F21C75239C00931D6A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				343936F01C7520DB00931D6A /* MovieDetailViewController.swift */,
+				34ABCC5D1C744CFD007EC3DE /* ViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		34ABCC4F1C744CFD007EC3DE = {
 			isa = PBXGroup;
 			children = (
@@ -71,8 +82,8 @@
 		34ABCC5A1C744CFD007EC3DE /* RottenTomatoes */ = {
 			isa = PBXGroup;
 			children = (
+				343936F21C75239C00931D6A /* View Controllers */,
 				34ABCC5B1C744CFD007EC3DE /* AppDelegate.swift */,
-				34ABCC5D1C744CFD007EC3DE /* ViewController.swift */,
 				34ABCC5F1C744CFD007EC3DE /* Main.storyboard */,
 				34ABCC621C744CFD007EC3DE /* Assets.xcassets */,
 				34ABCC641C744CFD007EC3DE /* LaunchScreen.storyboard */,
@@ -213,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				343936F11C7520DB00931D6A /* MovieDetailViewController.swift in Sources */,
 				34ABCC5E1C744CFD007EC3DE /* ViewController.swift in Sources */,
 				34ABCC5C1C744CFD007EC3DE /* AppDelegate.swift in Sources */,
 				34A95F211C744E6800DA275E /* MovieCell.swift in Sources */,
