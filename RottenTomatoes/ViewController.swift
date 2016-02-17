@@ -65,7 +65,6 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         let cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCell
 
         let movie = self.movies[indexPath.row]
-        
         let imageUrl = NSURL(string: self.baseImageUrl + (movie["poster_path"] as! String))
         
         cell.descriptionLabel.text = movie["overview"] as? String
