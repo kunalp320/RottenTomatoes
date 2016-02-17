@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
     @IBOutlet weak var moviesTableView: UITableView!
     var configurations: APIConfiguration = APIConfiguration()
     var movies = [NSDictionary]()
-    var endpoint: String?
+    var endpoint: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         moviesTableView.dataSource = self
         moviesTableView.delegate = self
         
-        let url = NSURL(string:configurations.baseUrl + "now_playing" + "?api_key=\(configurations.apiKey)")
+        let url = NSURL(string:configurations.baseUrl + endpoint + "?api_key=\(configurations.apiKey)")
         let request = NSURLRequest(URL: url!)
         
         // configure session so that completion handler is executed on main UI thread

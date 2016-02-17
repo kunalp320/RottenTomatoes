@@ -8,7 +8,7 @@
         <!--Movies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RottenTomatoes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoviesViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="RottenTomatoes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,7 +127,7 @@
         <!--Navigation Controller-->
         <scene sceneID="eqf-eZ-XOH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6JH-Qt-bpa" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MoviesNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="6JH-Qt-bpa" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VMO-E6-JIb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
