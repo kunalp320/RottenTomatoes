@@ -23,10 +23,12 @@ class MovieDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: movieInfoView.frame.origin.y + movieInfoView.frame.size.height)
         
         self.movieOverviewLabel.text = movie["overview"] as? String
+        self.movieOverviewLabel.sizeToFit()
+        
         self.movieTitleLabel.text = movie["title"] as? String
         
         let imageUrl = NSURL(string: configurations.baseImageUrl + (movie["poster_path"] as! String))
