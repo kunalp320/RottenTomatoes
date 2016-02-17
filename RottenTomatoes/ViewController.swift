@@ -13,9 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
 
 
     @IBOutlet weak var moviesTableView: UITableView!
-    let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-    let baseUrl =  "https://api.themoviedb.org/3/movie/"
-    let baseImageUrl = "http://image.tmdb.org/t/p/w500"
+    var configurations: APIConfiguration = APIConfiguration()
     var movies = [NSDictionary]()
     var endpoint: String?
     
@@ -25,7 +23,7 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         moviesTableView.dataSource = self
         moviesTableView.delegate = self
         
-        let url = NSURL(string:baseUrl + "now_playing" + "?api_key=\(apiKey)")
+        let url = NSURL(string:configurations.baseUrl + "now_playing" + "?api_key=\(configurations.apiKey)")
         let request = NSURLRequest(URL: url!)
         
         // configure session so that completion handler is executed on main UI thread
@@ -65,7 +63,7 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         let cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCell
 
         let movie = self.movies[indexPath.row]
-        let imageUrl = NSURL(string: self.baseImageUrl + (movie["poster_path"] as! String))
+        let imageUrl = NSURL(string: self.configurations.baseImageUrl + (movie["poster_path"] as! String))
         
         cell.descriptionLabel.text = movie["overview"] as? String
         cell.movieTitleLabel.text = movie["title"] as? String
