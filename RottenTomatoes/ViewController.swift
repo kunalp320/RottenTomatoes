@@ -11,9 +11,11 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource , UITableViewDelegate {
 
+    var movie: Movies
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        movie = Movies()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -29,9 +31,11 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCell
         
-        cell.descriptionLabel?.text = "WE OUT HERE"
-        cell.movieTitleLabel.text = "The Revanent"
-        return cell 
+        let movie: NSDictionary = self.movie.nowPlaying(indexPath.row)
+        
+        cell.descriptionLabel?.text = movie["overview"] as? String
+        cell.movieTitleLabel.text = movie["title"] as? String
+        return cell
         
     }
 

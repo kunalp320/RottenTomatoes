@@ -14,7 +14,7 @@
 		34ABCC611C744CFD007EC3DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34ABCC5F1C744CFD007EC3DE /* Main.storyboard */; };
 		34ABCC631C744CFD007EC3DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34ABCC621C744CFD007EC3DE /* Assets.xcassets */; };
 		34ABCC661C744CFD007EC3DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34ABCC641C744CFD007EC3DE /* LaunchScreen.storyboard */; };
-		49F5C2CBE7ECFAC60B5389AB /* libPods-RottenTomatoes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4D92E02A87FF19E79317E0 /* libPods-RottenTomatoes.a */; };
+		3E0D681EB691BF3C4FEFFFFA /* Pods_RottenTomatoes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F093B678CD8BF9440EAFB9 /* Pods_RottenTomatoes.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +28,8 @@
 		34ABCC621C744CFD007EC3DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34ABCC651C744CFD007EC3DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34ABCC671C744CFD007EC3DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F4D92E02A87FF19E79317E0 /* libPods-RottenTomatoes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RottenTomatoes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DFA5BE9792D0CF43FE0FDA4 /* Pods-RottenTomatoes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RottenTomatoes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RottenTomatoes/Pods-RottenTomatoes.debug.xcconfig"; sourceTree = "<group>"; };
+		C0F093B678CD8BF9440EAFB9 /* Pods_RottenTomatoes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RottenTomatoes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49F5C2CBE7ECFAC60B5389AB /* libPods-RottenTomatoes.a in Frameworks */,
+				3E0D681EB691BF3C4FEFFFFA /* Pods_RottenTomatoes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,7 +47,7 @@
 		18C5FD3F1DED9E05F5FDAAF5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3F4D92E02A87FF19E79317E0 /* libPods-RottenTomatoes.a */,
+				C0F093B678CD8BF9440EAFB9 /* Pods_RottenTomatoes.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
