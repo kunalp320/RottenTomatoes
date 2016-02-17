@@ -16,33 +16,32 @@ class Movies: NSObject {
     let baseUrl =  "https://api.themoviedb.org/3/movie/"
     var movies = [NSDictionary]()
     
-    func nowPlaying(movie: Int) -> NSDictionary {
-        if movies.count != 0 {
-            return movies[movie]
-        } else {
-            let url = NSURL(string:baseUrl + "now_playing" + "?api_key=\(apiKey)")
-            let request = NSURLRequest(URL: url!)
-            
-            // configure session so that completion handler is executed on main UI thread
-            let session = NSURLSession(
-                configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
-                delegate: nil,
-                delegateQueue: NSOperationQueue.mainQueue()
-            )
-            
-            
-            let task : NSURLSessionDataTask = session.dataTaskWithRequest(request,
-                completionHandler: { (dataOrNil, response, error) in
-                    if let data = dataOrNil {
-                            if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary {
-                                self.movies = responseDictionary["results"] as! [NSDictionary]
-                            }
+    override init() {
+        super.init()
+        let url = NSURL(string:baseUrl + "now_playing" + "?api_key=\(apiKey)")
+        let request = NSURLRequest(URL: url!)
+        
+        // configure session so that completion handler is executed on main UI thread
+        let session = NSURLSession(
+            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+            delegate: nil,
+            delegateQueue: NSOperationQueue.mainQueue()
+        )
+        
+        
+        let task : NSURLSessionDataTask = session.dataTaskWithRequest(request,
+            completionHandler: { (dataOrNil, response, error) in
+                if let data = dataOrNil {
+                    if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary {
+                        self.movies = responseDictionary["results"] as! [NSDictionary]
                     }
-                    
-            });
-            task.resume()
-            return self.movies[movie]
-        }
+                }
+        });
+        task.resume()
+    }
+    
+    func nowPlaying(movie: Int) -> NSDictionary {
+        return self.movies[movie]
     }
     
 }
