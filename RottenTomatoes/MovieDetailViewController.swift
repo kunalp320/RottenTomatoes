@@ -12,14 +12,20 @@ import AFNetworking
 
 class MovieDetailViewController: UIViewController {
 
+    @IBOutlet weak var movieInfoView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var movieOverviewLabel: UILabel!
     @IBOutlet weak var movieTitleLabel: UILabel!
+    
     var movie: NSDictionary!
     var configurations:APIConfiguration = APIConfiguration()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: movieInfoView.frame.origin.y + movieInfoView.frame.size.height)
+        
         self.movieOverviewLabel.text = movie["overview"] as? String
         self.movieTitleLabel.text = movie["title"] as? String
         
