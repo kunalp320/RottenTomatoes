@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class ViewController: UIViewController, UITableViewDataSource , UITableViewDelegate {
 
@@ -14,6 +15,7 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
     @IBOutlet weak var moviesTableView: UITableView!
     let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
     let baseUrl =  "https://api.themoviedb.org/3/movie/"
+    let baseImageUrl = "http://image.tmdb.org/t/p/w500"
     var movies = [NSDictionary]()
     var endpoint: String?
     
@@ -63,9 +65,13 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         let cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCell
 
         let movie = self.movies[indexPath.row]
-        cell.descriptionLabel?.text = movie["overview"] as? String
-        cell.movieTitleLabel.text = movie["title"] as? String
         
+        let imageUrl = NSURL(string: self.baseImageUrl + (movie["poster_path"] as! String))
+        
+        cell.descriptionLabel.text = movie["overview"] as? String
+        cell.movieTitleLabel.text = movie["title"] as? String
+        cell.moviePosterImage.setImageWithURL(imageUrl!)
+
         return cell
     }
 
