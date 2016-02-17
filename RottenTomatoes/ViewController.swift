@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class ViewController: UIViewController, UITableViewDataSource , UITableViewDelegate {
 
     var movie: Movies
