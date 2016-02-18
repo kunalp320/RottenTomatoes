@@ -68,7 +68,7 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
                 success: { (imageRequest, imageResponse, smallImage) -> Void in
                     withCell.moviePosterImage?.alpha = 0.8
                     withCell.moviePosterImage?.image = smallImage
-                    UIView.animateWithDuration(0.3, animations: { () -> Void in
+                    UIView.animateWithDuration(0.9, animations: { () -> Void in
                         withCell.moviePosterImage?.alpha = 1.0
                         }, completion: {(success) -> Void in
                             let highResImageURL = NSURL(string: self.configurations.baseHighResolutionImageURL + (poster_path as! String))

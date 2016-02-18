@@ -40,7 +40,7 @@ class MovieDetailViewController: UIViewController {
                     self.posterImageView?.alpha = 1.0
                     self.posterImageView?.image = smallImage
             
-                    UIView.animateWithDuration(0.3, animations: { () -> Void in
+                    UIView.animateWithDuration(0.9, animations: { () -> Void in
                         self.posterImageView.alpha = 1.0
                         }, completion: {(success) -> Void in
                             let highResImageURL = NSURL(string: self.configurations.baseHighResolutionImageURL + (poster_path as! String))
