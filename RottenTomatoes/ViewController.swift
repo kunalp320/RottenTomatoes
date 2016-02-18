@@ -59,15 +59,43 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         }
     }
     
+    private func displayMoviePoster(movie: NSDictionary, withCell: MovieCell) {
+        if let poster_path = movie["poster_path"] {
+            let imageURL = NSURL(string: self.configurations.baseLowResolutionImageURL + (poster_path as! String))
+            let imageURLRequest = NSURLRequest(URL: imageURL!)
+            
+            withCell.moviePosterImage.setImageWithURLRequest(imageURLRequest, placeholderImage: nil,
+                success: { (imageRequest, imageResponse, smallImage) -> Void in
+                    withCell.moviePosterImage?.alpha = 0.8
+                    withCell.moviePosterImage?.image = smallImage
+                    UIView.animateWithDuration(0.3, animations: { () -> Void in
+                        withCell.moviePosterImage?.alpha = 1.0
+                        }, completion: {(success) -> Void in
+                            let highResImageURL = NSURL(string: self.configurations.baseHighResolutionImageURL + (poster_path as! String))
+                            let highResImageURLRequest = NSURLRequest(URL: highResImageURL!)
+                            withCell.moviePosterImage.setImageWithURLRequest(highResImageURLRequest, placeholderImage: nil, success: { (highResImageRequest, highRestImageResponse, highResImage) -> Void in
+                                withCell.moviePosterImage.alpha = 1.0
+                                withCell.moviePosterImage.image = highResImage
+                                }, failure: { (request, response, error) -> Void in
+                            })
+                    })
+                },
+            
+                failure: { (request, response, error) -> Void in
+                });
+        }
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCell
 
         let movie = self.movies[indexPath.row]
-        let imageUrl = NSURL(string: self.configurations.baseImageUrl + (movie["poster_path"] as! String))
+        
+        displayMoviePoster(movie, withCell:cell)
         
         cell.descriptionLabel.text = movie["overview"] as? String
         cell.movieTitleLabel.text = movie["title"] as? String
-        cell.moviePosterImage.setImageWithURL(imageUrl!)
+
 
         return cell
     }
